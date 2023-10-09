@@ -1,0 +1,21 @@
+Name:           mining-replica-set
+Namespace:      default
+Selector:       app=mining-app
+Labels:         app=mining-app
+Annotations:    <none>
+Replicas:       2 current / 2 desired
+Pods Status:    2 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  app=mining-app
+  Containers:
+   mining-container:
+    Image:        centos202
+    Port:         80/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+  Volumes:        <none>
+Events:
+  Type    Reason            Age   From                   Message
+  ----    ------            ----  ----                   -------
+  Normal  SuccessfulCreate  5d    replicaset-controller  Created pod: mining-replica-set-abcde
+  Normal  SuccessfulCreate  5d    replicaset-controller  Created pod: mining-replica-set-fghij
