@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mining-replica-set
+  namespace: default
+  ...
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mining-app
+  template:
+    metadata:
+      labels:
+        app: mining-app
+    spec:
+      containers:
+      - name: main-container
+        image: centos202
+        ports:
+        - containerPort: 8080
+        ...
+      ...
