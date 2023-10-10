@@ -1,23 +1,22 @@
-apiVersion: apps/v1
-kind: ReplicaSet
-metadata:
-  name: mining-replica-set
-  namespace: default
-  ...
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: mining-app
-  template:
-    metadata:
-      labels:
-        app: mining-app
-    spec:
-      containers:
-      - name: main-container
-        image: centos202
-        ports:
-        - containerPort: 8080
-        ...
-      ...
+Name:           mining-replica-set
+Namespace:      default
+Selector:       app=mining-app
+Labels:         app=mining-app
+Annotations:    <none>
+Replicas:       2 current / 2 desired
+Pods Status:    0 Running / 2 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  app=mining-app
+  Containers:
+   mining-container:
+    Image:        centos202 (ImagePullBackOff)
+    Port:         80/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+  Volumes:        <none>
+Events:
+  Type     Reason            Age   From                   Message
+  ----     ------            ----  ----                   -------
+  Normal   SuccessfulCreate  5d    replicaset-controller  Created pod: mining-replica-set-abcde
+  Normal   SuccessfulCreate  5d    replicaset-controller  Created pod: mining-replica-set-fghij
+  Warning  FailedCreate      5d    replicaset-controller  Error creating: pods "mining-replica-set-abcde", "mining-replica-set-fghij" failed to pull image "centos202": rpc error: code = Unknown desc = Error response from daemon: pull access denied for centos202, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
