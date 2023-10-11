@@ -1,0 +1,5 @@
+NAME                          READY   STATUS    RESTARTS   AGE
+mining-replica-set-2-cp427    1/1     Running   0          3d
+mining-replica-set-2-cp118    1/1     Running   0          3d
+mining-replica-set-2-um121    1/1     Running   0          2d
+mining-replica-set-2-zo927    1/1     Running   0          1d
